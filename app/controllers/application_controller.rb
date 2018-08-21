@@ -10,6 +10,8 @@ class ApplicationController < Sinatra::Base
 
   get '/posts' do
     @posts = Post.all
+
+    binding.pry 
     erb :index
   end
 
@@ -43,7 +45,7 @@ class ApplicationController < Sinatra::Base
   delete '/posts/:id/delete' do
     @post = Post.find(params[:id])
     @post.delete
-    erb :delete 
+    erb :delete
   end
 
 end
